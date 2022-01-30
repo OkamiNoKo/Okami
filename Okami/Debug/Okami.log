@@ -1,6 +1,43 @@
 ﻿  main.cpp
-c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(74): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
-c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(99): warning C4018: '<': signed/unsigned mismatch
-c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(120): warning C4018: '<': signed/unsigned mismatch
-c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(160): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(177): warning C4244: 'argument': conversion from 'double' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(202): warning C4018: '<': signed/unsigned mismatch
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(223): warning C4018: '<': signed/unsigned mismatch
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(255): warning C4018: '<': signed/unsigned mismatch
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(273): warning C4018: '<': signed/unsigned mismatch
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(385): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(392): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(427): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(428): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(431): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(457): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(458): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(463): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(464): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(466): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(467): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(475): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(476): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(481): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(482): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(484): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(485): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(495): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(496): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(501): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(502): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(504): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(505): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(520): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(521): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(526): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(527): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(529): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(530): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(538): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(539): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(544): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(545): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(547): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(548): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+c:\drisnyaultimatepack\code\c&c++\okami\okami\main.cpp(579): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   Okami.vcxproj -> C:\DrisnyaUltimatePack\Code\c&c++\Okami\Debug\Okami.exe
