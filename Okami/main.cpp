@@ -361,13 +361,14 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		rt->BeginDraw();
 		rt->Clear(D2D1::ColorF(D2D1::ColorF::White));
 
-		rt->DrawRectangle(
-			D2D1::RectF(0, 120, 1280, 360),
-			brushes[17], 240.0f, NULL);
+		
+		rt->FillRectangle(
+			D2D1::RectF(0, 0, 1280, 480),
+			brushes[17]);
 
-		rt->DrawRectangle(
-			D2D1::RectF(0, 540, 1280, 660),
-			brushes[7], 120.0f, NULL);
+		rt->FillRectangle(
+			D2D1::RectF(0, 480, 1280, 720),
+			brushes[7]);
 
 		bool Y = (P.y < End.hight + End.y) && (P.y >= End.y);
 		bool cond_1 = (P.x >= End.x && (End.x + End.width) >= P.x);
@@ -379,35 +380,14 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			flag = false;
 		}
 
-		float pw4 = min((float)P.width / 4, (float)P.hight / 4);
-
-		float ew4 = min((float)End.width / 4, (float)End.hight / 4);
-
 		float Player_disp_x;
 
 		int DetW, DetH = 0;
 		for (int i = 0; i < Vnum; i++)
 		{
-			DetW = (float)Visual[i][2] / 4;
-			DetH = (float)Visual[i][3] / 4;
 
 
 			int con = 2 * ((int)(box.width - 0.6f * 1280) - 0.4f * 1280);
-			/*
-			if (Visual[i][1] >= 480)
-			{
-				rt->DrawRectangle(
-					D2D1::RectF((Visual[i][0] + 3 * DetW - (2 * P.x) % box0.width + box0.width) % box0.width - 2 * DetW, Visual[i][1] - DetH, (Visual[i][0] + 3 * DetW - (2 * P.x) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-					brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
-			}
-			else
-			{
-
-				rt->DrawRectangle(
-					D2D1::RectF((Visual[i][0] + 3 * DetW - (int)(P.x / 7) % box0.width + box0.width) % box0.width - 2 * DetW, Visual[i][1] - DetH, (Visual[i][0] + 3 * DetW - (int)(P.x / 7) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-					brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
-			}
-			*/
 
 			if (P.x + 0.6f * 1280 <= box.width)
 			{
@@ -415,58 +395,58 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 				{
 					if (Visual[i][1] >= 480)
 					{
-						if ((Visual[i][0] - 3 * DetW - (2 * (int(P.x - 0.4f * 1280))) % box0.width + box0.width) % box0.width <= (Visual[i][0] - DetW - (2 * (int)(P.x - 0.4f * 1280)) % box0.width + box0.width) % box0.width)
+						if ((Visual[i][0] - (2 * (int(P.x - 0.4f * 1280))) % box0.width + box0.width) % box0.width <= (Visual[i][0] + Visual[i][2] - (2 * (int)(P.x - 0.4f * 1280)) % box0.width + box0.width) % box0.width)
 						{
-							rt->DrawRectangle(
-								D2D1::RectF((Visual[i][0] - 3 * DetW - (2 * (int(P.x - 0.4f * 1280))) % box0.width + box0.width) % box0.width, Visual[i][1] - DetH, (Visual[i][0] - DetW - (2 * (int)(P.x - 0.4f * 1280)) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+							rt->FillRectangle(
+								D2D1::RectF((Visual[i][0] - (2 * (int(P.x - 0.4f * 1280))) % box0.width + box0.width) % box0.width, Visual[i][1] , (Visual[i][0] + Visual[i][2] - (2 * (int)(P.x - 0.4f * 1280)) % box0.width + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
 						}
 						else
 						{
-							rt->DrawRectangle(
-								D2D1::RectF((Visual[i][0] - 3 * DetW - (2 * (int(P.x - 0.4f * 1280))) % box0.width + box0.width) % box0.width, Visual[i][1] - DetH, box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
-							rt->DrawRectangle(
-								D2D1::RectF(0, Visual[i][1] - DetH, (Visual[i][0] - DetW - (2 * (int)(P.x - 0.4f * 1280)) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+							rt->FillRectangle(
+								D2D1::RectF((Visual[i][0] - (2 * (int(P.x - 0.4f * 1280))) % box0.width + box0.width) % box0.width, Visual[i][1], box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
+							rt->FillRectangle(
+								D2D1::RectF(0, Visual[i][1], (Visual[i][0] + Visual[i][2] - (2 * (int)(P.x - 0.4f * 1280)) % box0.width + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
 						}
 					}
 					else
 					{
-						if ((Visual[i][0] - 3 * DetW - (2 * (int(P.x - 0.4f * 1280))) / 4 % box0.width + box0.width) % box0.width <= (Visual[i][0] - DetW - (2 * (int)(P.x - 0.4f * 1280)) / 4 % box0.width + box0.width) % box0.width)
+						if ((Visual[i][0] - (2 * (int(P.x - 0.4f * 1280))) / 4 % box0.width + box0.width) % box0.width <= (Visual[i][0] + Visual[i][2] - (2 * (int)(P.x - 0.4f * 1280)) / 4 % box0.width + box0.width) % box0.width)
 						{
-							rt->DrawRectangle(
-								D2D1::RectF((Visual[i][0] - 3 * DetW - (2 * (int(P.x - 0.4f * 1280)) / 4) % box0.width + box0.width) % box0.width, Visual[i][1] - DetH, (Visual[i][0] - DetW - (2 * (int)(P.x - 0.4f * 1280) / 4) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+							rt->FillRectangle(
+								D2D1::RectF((Visual[i][0] - (2 * (int(P.x - 0.4f * 1280)) / 4) % box0.width + box0.width) % box0.width, Visual[i][1], (Visual[i][0] + Visual[i][2] - (2 * (int)(P.x - 0.4f * 1280) / 4) % box0.width + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
 						}
 						else
 						{
-							rt->DrawRectangle(
-								D2D1::RectF((Visual[i][0] - 3 * DetW - (2 * (int(P.x - 0.4f * 1280))) / 4 % box0.width + box0.width) % box0.width, Visual[i][1] - DetH, box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
-							rt->DrawRectangle(
-								D2D1::RectF(0, Visual[i][1] - DetH, (Visual[i][0] - DetW - (2 * (int)(P.x - 0.4f * 1280)) / 4 % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+							rt->FillRectangle(
+								D2D1::RectF((Visual[i][0] - (2 * (int(P.x - 0.4f * 1280))) / 4 % box0.width + box0.width) % box0.width, Visual[i][1], box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
+							rt->FillRectangle(
+								D2D1::RectF(0, Visual[i][1], (Visual[i][0] + Visual[i][2] - (2 * (int)(P.x - 0.4f * 1280)) / 4 % box0.width + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
 						}
 
 					}
 				}
 				else
 				{
-					if ((Visual[i][0] - 3 * DetW + box0.width) % box0.width <= (Visual[i][0] - DetW + box0.width) % box0.width)
+					if ((Visual[i][0] + box0.width) % box0.width <= (Visual[i][0] + Visual[i][2] + box0.width) % box0.width)
 					{
-						rt->DrawRectangle(
-							D2D1::RectF((Visual[i][0] - 3 * DetW + box0.width) % box0.width, Visual[i][1] - DetH, (Visual[i][0] - DetW + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-							brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+						rt->FillRectangle(
+							D2D1::RectF((Visual[i][0] + box0.width) % box0.width, Visual[i][1], (Visual[i][0] + Visual[i][2] + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+							brushes[Visual[i][4]]);
 					}
 					else
 					{
-						rt->DrawRectangle(
-							D2D1::RectF((Visual[i][0] - 3 * DetW + box0.width) % box0.width, Visual[i][1] - DetH, box0.width, Visual[i][1] - 3 * DetH),
-							brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
-						rt->DrawRectangle(
-							D2D1::RectF(0, Visual[i][1] - DetH, (Visual[i][0] - DetW + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-							brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+						rt->FillRectangle(
+							D2D1::RectF((Visual[i][0] + box0.width) % box0.width, Visual[i][1], box0.width, Visual[i][1] - Visual[i][3]),
+							brushes[Visual[i][4]]);
+						rt->FillRectangle(
+							D2D1::RectF(0, Visual[i][1], (Visual[i][0] + Visual[i][2] + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+							brushes[Visual[i][4]]);
 					}
 
 
@@ -474,62 +454,46 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			}
 			else
 			{
-				if ((Visual[i][0] - 3 * DetW - (con) % box0.width + box0.width) % box0.width < (Visual[i][0] - DetW - (con) % box0.width + box0.width) % box0.width)
+				if (((Visual[i][0] - con) % box0.width + box0.width) % box0.width <= ((Visual[i][0] + Visual[i][2] - con) % box0.width + box0.width) % box0.width)
 				{
 					if (Visual[i][1] >= 480)
 					{
-						if ((Visual[i][0] - 3 * DetW - (con) % box0.width + box0.width) % box0.width < (Visual[i][0] - DetW - (con) % box0.width + box0.width) % box0.width)
+						if (((Visual[i][0] - con) % box0.width + box0.width) % box0.width <= ((Visual[i][0] + Visual[i][2] - con) % box0.width + box0.width) % box0.width)
 						{
-							rt->DrawRectangle(
-								D2D1::RectF((Visual[i][0] - 3 * DetW - (con) % box0.width + box0.width) % box0.width, Visual[i][1] - DetH, (Visual[i][0] - DetW - (con) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+							rt->FillRectangle(
+								D2D1::RectF(((Visual[i][0] - con) % box0.width + box0.width) % box0.width, Visual[i][1], ((Visual[i][0] + Visual[i][2] - con) % box0.width + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
 						}
 						else
 						{
-							rt->DrawRectangle(
-								D2D1::RectF(((Visual[i][0] - 3 * DetW - con) % box0.width + box0.width) % box0.width, Visual[i][1] - DetH, box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
-							rt->DrawRectangle(
-								D2D1::RectF(0, Visual[i][1] - DetH, ((Visual[i][0] - DetW - con) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+							rt->FillRectangle(
+								D2D1::RectF(((Visual[i][0] - con) % box0.width + box0.width) % box0.width, Visual[i][1], box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
+							rt->FillRectangle(
+								D2D1::RectF(0, Visual[i][1], ((Visual[i][0] - con) % box0.width + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
 						}
 					}
 					else
 					{
-						if ((Visual[i][0] - 3 * DetW - (con / 4) % box0.width + box0.width) % box0.width < (Visual[i][0] - DetW - (con / 4) % box0.width + box0.width) % box0.width)
+						if (((Visual[i][0] - con / 4) % box0.width + box0.width) % box0.width <= ((Visual[i][0] + Visual[i][2] - con / 4) % box0.width + box0.width) % box0.width)
 						{
-							rt->DrawRectangle(
-								D2D1::RectF((Visual[i][0] - 3 * DetW - (int)(con / 4) % box0.width + box0.width) % box0.width, Visual[i][1] - DetH, (Visual[i][0] - DetW - (int)(con / 4) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+							rt->FillRectangle(
+								D2D1::RectF((Visual[i][0] - (int)(con / 4) % box0.width + box0.width) % box0.width, Visual[i][1], (Visual[i][0] + Visual[i][2] - (int)(con / 4) % box0.width + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
 						}
 						else
 						{
-							rt->DrawRectangle(
-								D2D1::RectF((Visual[i][0] - 3 * DetW - (int)(con / 4) % box0.width + box0.width) % box0.width, Visual[i][1] - DetH, box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
-							rt->DrawRectangle(
-								D2D1::RectF(0, (Visual[i][0] - DetW - (int)(con / 4) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-								brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
+							rt->FillRectangle(
+								D2D1::RectF((Visual[i][0] - (int)(con / 4) % box0.width + box0.width) % box0.width, Visual[i][1], box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
+							rt->FillRectangle(
+								D2D1::RectF(0, Visual[1][1], (Visual[i][0] + Visual[i][2] - (int)(con / 4) % box0.width + box0.width) % box0.width, Visual[i][1] - Visual[i][3]),
+								brushes[Visual[i][4]]);
 						}
 					}
 				}
 
-				/*
-
-				if (Visual[i][1] >= 480)
-				{
-					rt->DrawRectangle(
-						D2D1::RectF((Visual[i][0] + 3 * DetW - (P.x) % box0.width + box0.width) % box0.width - 2 * DetW, Visual[i][1] - DetH, (Visual[i][0] + 3 * DetW - (P.x) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-						brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
-				}
-				else
-				{
-
-					rt->DrawRectangle(
-						D2D1::RectF((Visual[i][0] + 3 * DetW - (int)(con) % box0.width + box0.width) % box0.width - 2 * DetW, Visual[i][1] - DetH, (Visual[i][0] + 3 * DetW - (int)(con ) % box0.width + box0.width) % box0.width, Visual[i][1] - 3 * DetH),
-						brushes[Visual[i][4]], 2 * min(DetW, DetH), NULL);
-				}
-				*/
 
 			}
 		}
@@ -538,33 +502,33 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		if (P.x + 0.6f * 1280 <= box.width && P.x - 0.4f * 1280 >= 0)
 		{
 			Player_disp_x = 1280 * 0.4f;
-			rt->DrawRectangle(
-				D2D1::RectF(1280 * 0.4f + pw4, P.y - pw4, 1280 * 0.4f + P.width - pw4, P.y - P.hight + pw4),
-				brushes[26], 2 * pw4, NULL);
+			rt->FillRectangle(
+				D2D1::RectF(1280 * 0.4f, P.y, 1280 * 0.4f + P.width, P.y - P.hight),
+				brushes[26]);
 		}
 		else
 		{
 			if (P.x + 0.6f * 1280 > box.width)
 			{
 				Player_disp_x = P.x - (box.width - 1280);
-				rt->DrawRectangle(
-					D2D1::RectF(P.x - (box.width - 1280) + pw4, P.y - pw4, P.x + P.width - (box.width - 1280) - pw4, P.y - P.hight + pw4),
-					brushes[26], 2 * pw4, NULL);
+				rt->FillRectangle(
+					D2D1::RectF(P.x - (box.width - 1280), P.y, P.x + P.width - (box.width - 1280), P.y - P.hight),
+					brushes[26]);
 			}
 			else
 			{
 				Player_disp_x = P.x;
-				rt->DrawRectangle(
-					D2D1::RectF(P.x + pw4, P.y - pw4, P.x + P.width - pw4, P.y - P.hight + pw4),
-					brushes[26], 2 * pw4, NULL);
+				rt->FillRectangle(
+					D2D1::RectF(P.x, P.y, P.x + P.width, P.y - P.hight),
+					brushes[26]);
 			}
 		}
 
 
 
-		rt->DrawRectangle(
-			D2D1::RectF(Player_disp_x + (End.x - P.x) + ew4, End.y - ew4, Player_disp_x + (End.x - P.x) + End.width - ew4, End.y - End.hight + ew4),
-			brushes[27], 2 * ew4, NULL);
+		rt->FillRectangle(
+			D2D1::RectF(Player_disp_x + (End.x - P.x), End.y, Player_disp_x + (End.x - P.x) + End.width, End.y - End.hight),
+			brushes[27]);
 
 		if (buffer[DIK_RIGHT] & 0x80)
 			P.x += 7;
@@ -697,9 +661,15 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	}
 	Sleep(500);
 	int counter = 0;
+	double kvasiCounter = 0;
+	//time_t prev_time = time(NULL);
+	//time_t pres_time = time(NULL);
+
+
 	while (isPlaying)
 	{
-		counter += 3;
+		kvasiCounter += 0.3;
+		counter = int(kvasiCounter);
 		rt->BeginDraw();
 
 		rt->Clear();
@@ -710,7 +680,8 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		rt->DrawTextA(L"CONGRATULATIONS", 16, pTextFormat, rectf2[counter % 31], brushes[27]);
 
 		rt->EndDraw();
-		if ((res >= WAIT_OBJECT_0) && (res <= WAIT_OBJECT_0 + 3)) {
+		pres_time = time(NULL);
+		if (pres_time > prev_time){
 			m_pDSBuffer8->Lock(offset, BUFFERNOTIFYSIZE, &buf, &buf_len, NULL, NULL, 0);
 			if (fread(buf, 1, buf_len, fp) != buf_len) {
 				//File End  
@@ -724,7 +695,8 @@ int _stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			offset += buf_len;
 			offset %= (BUFFERNOTIFYSIZE * MAX_AUDIO_BUF);
 		}
-		res = WaitForMultipleObjects(MAX_AUDIO_BUF, m_event, FALSE, INFINITE);
+		prev_time = pres_time;
+		//res = WaitForMultipleObjects(MAX_AUDIO_BUF, m_event, FALSE, INFINITE);
 
 	}
 
